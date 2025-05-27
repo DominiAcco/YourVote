@@ -1,0 +1,24 @@
+.home-body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.home-header {
+    background-color: #0052af;
+    display: flex;
+  
+    padding: 10px 20px;
+    margin:  0;
+
+}
+#home-nav {
+    border: solid 1px #000000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+    
