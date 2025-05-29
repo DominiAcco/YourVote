@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Votação</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Criar Nova Votação</h2>
+    <form id="form-votacao">
+      <label for="titulo">Título da votação:</label>
+      <input type="text" id="titulo" name="titulo" required>
+
+      <label for="encerramento">Tempo para encerrar (minutos):</label>
+      <input type="number" id="encerramento" name="encerramento" min="1" required>
+
+      <div id="candidatos-container">
+        <label>Candidatos:</label>
+        <input type="text" name="candidato" placeholder="Nome do candidato" required>
+        <input type="text" name="candidato" placeholder="Nome do candidato" required>
+      </div>
+
+      <button type="button" id="add-candidato">+ Adicionar Candidato</button>
+      <br><br>
+      <button type="submit">Criar Votação</button>
+      <p id="msg"></p>
+    </form>
+   <button onclick="window.location.href='home.html'">Voltar para o início</button>
+  </div>
+
+  <script src="/Js/createVote.js"></script>
+</body>
+</html>

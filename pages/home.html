@@ -1,42 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourVote</title>
-    <link rel="stylesheet" href="/css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Início</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
+<body>
+  <div class="container">
+    <h2>Bem-vindo, <span id="user-name">Usuário</span>!</h2>
+    <button id="btnCreate">Criar Nova Votação</button>
+    <button id="btnLogout" class="btn-logout">Sair</button>
 
-<body class="home-body">
-    <header class="home-header">
-        <h1>YourVote</h1>
-        <nav id="home-nav">
+    <h3>Votações disponíveis:</h3>
+    <div id="voteList"></div>
+  </div>
 
-            <ul>
-                <li><a href="/pages/home.html">Home</a></li>
-                <li><a href="/pages/login.html">Login</a></li>
-
-            </ul>
-        </nav>
-    </header>
-
-    <main >
-        <div>
-            <h2>
-                Bem vindo ao YourVote!
-            </h2>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 YourVote. All rights reserved.</p>
-    </footer>
-
-    <script src="/js/scripts.js"></script>
-
-
-
+  <script src="../js/home.js"></script>
 </body>
-
 </html>
