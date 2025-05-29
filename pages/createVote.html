@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Criar Votação</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/createVote.css">
 </head>
+
 <body>
-  <div class="container">
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <span class="logo">YourVote</span>
+       
+      </div>
+    </nav>
+
+
+  </header>
+  <div class="container-vote">
     <h2>Criar Nova Votação</h2>
     <form id="form-votacao">
       <label for="titulo">Título da votação:</label>
@@ -27,9 +40,23 @@
       <button type="submit">Criar Votação</button>
       <p id="msg"></p>
     </form>
-   <button onclick="window.location.href='home.html'">Voltar para o início</button>
+    <button onclick="window.location.href='home.html'">Voltar para o início</button>
   </div>
+  <footer>
+    <div class="footer-content">
+      <p>Criador:Domini Acco</p>
+    </div>
+    <div class="footer-content">
+      <p>"Seu voto muda tudo"</p>
+    </div>
+    <div class="footer-content">
+
+      <p>© 2025 YourVote.</p>
+      <p> Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
   <script src="/Js/createVote.js"></script>
 </body>
+
 </html>

@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/register.css">
 </head>
-<body>
-  <div class="container">
-    <h2>Crie sua conta</h2>
-    <form id="registerForm">
-      <input type="text" id="username" placeholder="Seu nome" required />
-      <input type="text" id="userId" placeholder="ID do eleitor" required />
-      <button type="submit">Cadastrar</button>
-    </form>
-    <p id="msg" style="margin-top:10px;"></p>
-    <div id="loginSection" style="display: none; margin-top: 20px;">
-      <p>Você já está cadastrado. Deseja entrar?</p>
-      <button id="btnLogin">Fazer Login</button>
-    </div>
-    <button id="backBtn" style="margin-top: 10px;">Voltar para o início</button>
-  </div>
 
-  <script src="../js/register.js" defer></script>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <span class="logo">YourVote</span>
+        
+      </div>
+    </nav>
+
+  </header>
+  <main>
+    <div class="container">
+      <h2>Crie sua conta</h2>
+      <form id="registerForm">
+        <input type="text" id="username" placeholder="Seu nome" required />
+        <input type="text" id="userId" placeholder="ID do eleitor" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+      <p id="msg" style="margin-top:10px;"></p>
+      <div id="loginSection" style="display: none; margin-top: 20px;">
+        <p>Você já está cadastrado. Deseja entrar?</p>
+        <button id="btnLogin">Fazer Login</button>
+      </div>
+      <button id="backBtn" style="margin-top: 10px;">Voltar para o início</button>
+    </div>
+
+  </main>
+  <footer>
+    <div class="footer-content">
+      <p>Criador:Domini Acco</p>
+    </div>
+    <div class="footer-content">
+      <p>"Seu voto muda tudo"</p>
+    </div>
+    <div class="footer-content">
+
+      <p>© 2025 YourVote.</p>
+      <p> Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script src="/Js/register.js" defer></script>
 </body>
+
 </html>

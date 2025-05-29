@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2) Botões de navegação
   btnLogin.addEventListener("click",  () => window.location.href = "home.html");
-  backBtn.addEventListener("click",  () => window.location.href = "home.html");
+  backBtn.addEventListener("click",  () => window.location.href = "index.html");
 
   // 3) No submit, apenas cadastra se ainda não houver user; senão só mostra loginSection
   formRegister.addEventListener("submit", e => {

@@ -1,28 +1,16 @@
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
- 
-  min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+
+    min-height: 100vh;
 }
 
-.container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 500px;
-}
 
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+
+
+/*
 
 button {
   background-color: #007bff;
@@ -33,4 +21,85 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+
+
+/* Reset e base */
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    background: #005892;
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-link {
+    margin-left: auto;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+    background: #00218f;
+    border-radius: 4px;
+}
+
+/* Main */
+.main-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.main-content h1 {
+    margin-bottom: 1rem;
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #005892;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-content {
+    margin: 15px;
+    padding: 15px;
+   
 }

@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Início</title>
-  <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css">
 </head>
+
 <body>
-  <div class="container">
-    <h2>Bem-vindo, <span id="user-name">Usuário</span>!</h2>
-    <button id="btnCreate">Criar Nova Votação</button>
-    <button id="btnLogout" class="btn-logout">Sair</button>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <span class="logo">YourVote</span>
+                
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Bem-vindo, <span id="user-name">Usuário</span>!</h2>
+            <button id="btnCreate">Criar Nova Votação</button>
+            <button id="btnLogout" class="btn-logout">Sair</button>
 
-    <h3>Votações disponíveis:</h3>
-    <div id="voteList"></div>
-  </div>
+            <h3>Votações disponíveis:</h3>
+            <div id="voteList"></div>
+        </div>
 
-  <script src="../js/home.js"></script>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Criador:Domini Acco</p>
+        </div>
+        <div class="footer-content">
+            <p>"Seu voto muda tudo"</p>
+        </div>
+        <div class="footer-content">
+
+            <p>© 2025 YourVote.</p>
+            <p> Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="/Js/home.js"></script>
 </body>
+
 </html>

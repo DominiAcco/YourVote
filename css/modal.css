@@ -1,0 +1,48 @@
+/* Overlay do modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;            /* start hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Container do modal */
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* Botão de fechar */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo do formulário dentro do modal */
+#modalForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+#modalForm input[type="radio"] {
+  margin-right: 0.5rem;
+}
+#modalSubmit {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
