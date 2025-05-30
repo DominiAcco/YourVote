@@ -1,25 +1,11 @@
 YourVote
-YourVote é um sistema simples de votação online que permite aos usuários se registrarem, criarem votações e participarem delas. O projeto foi desenvolvido com foco em praticar conceitos básicos de desenvolvimento web utilizando apenas tecnologias front-end.
+YourVote é um sistema simples de votação online onde os usuários podem se cadastrar, criar votações e participar delas de forma rápida e prática. O projeto é totalmente baseado em tecnologias front-end e usa armazenamento local (localStorage) para gerenciar os dados dos usuários e das votações.
 
-Funcionalidades
-Cadastro de usuário com nome e ID de eleitor
+O sistema permite que os usuários se registrem fornecendo um nome e um ID de eleitor. Após o registro, é possível criar novas votações, visualizar votações disponíveis e votar diretamente em um modal, sem sair da página principal. A página inicial também apresenta um carrossel automático com informações sobre o funcionamento do site. O layout é responsivo, com um footer fixado ao final da página contendo informações organizadas à esquerda, centro e direita.
 
-Listagem de votações disponíveis
-
-Votação simples em diferentes enquetes
-
-Modal para votação sem redirecionamento de página
-
-Interface responsiva e intuitiva
-
-Footer informativo com informações do projeto
-
-Carrossel automático de informações na página inicial
-
-Estrutura de Pastas
+Estrutura de Pastas e Arquivos
 css
 Copiar código
-YourVote/
 YourVote/
 ├── index.html              Página inicial com carrossel e botão de cadastro
 ├── register.html           Página de cadastro do usuário
@@ -40,22 +26,18 @@ YourVote/
 │   ├── createVote.js       Script de criação de votações
 │   └── carousel.js         Script de animação automática do carrossel
 └── README.md               Este arquivo
-          Este arquivo
 Tecnologias Utilizadas
-HTML5 para estrutura das páginas
+HTML5: Estrutura das páginas e elementos semânticos
 
-CSS3 para estilização com foco em responsividade e layout moderno
+CSS3: Estilização visual, responsividade com Flexbox e design moderno
 
-JavaScript (ES6) para lógica de interatividade, armazenamento local (localStorage) e manipulação de DOM
+JavaScript (ES6): Manipulação de DOM, lógica de cadastro, votações, modais e carrossel
 
-Flexbox para construção de layouts responsivos como navbar, rodapé e carrossel
-
-Modal dinâmico com carregamento de conteúdo da página de votação
+localStorage: Armazenamento local dos dados dos usuários e das votações sem uso de banco de dados externo
 
 Observações
-Este projeto não possui backend. Todos os dados são armazenados localmente no navegador utilizando localStorage.
-O sistema foi projetado apenas para fins educativos e demonstração de conceitos básicos de front-end.
+Este sistema é uma aplicação totalmente client-side, ou seja, não possui backend nem banco de dados real. Todas as informações são armazenadas no navegador do usuário por meio do localStorage. O projeto é ideal para fins didáticos, testes e desenvolvimento de habilidades em front-end.
 
 Autor
-Desenvolvido por Domini Acco.
-"Seu voto muda tudo."
+Desenvolvido por Domini Acco
+Frase do projeto: "Seu voto muda tudo."
