@@ -54,4 +54,6 @@ form {
     background-color: #0056b3;
   }
 
-  
+  footer{
+    position: fixed;
+  }

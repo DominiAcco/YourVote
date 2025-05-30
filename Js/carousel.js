@@ -1,31 +1,82 @@
-// carousel-scroll.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("cards1");
-  const prevBtn   = document.getElementById("btn-left");
-  const nextBtn   = document.getElementById("btn-right");
-  const cards     = Array.from(container.children);
-  const scrollAmount = cards[0].getBoundingClientRect().width + 20; // card width + margin
+  const prevBtn = document.getElementById("btn-left");
+  const nextBtn = document.getElementById("btn-right");
+  const cards = Array.from(container.children);
+  const scrollAmount = cards[0].getBoundingClientRect().width + 20; // largura + margem
 
-  // Destacar card central
-  function updateInView() {
-    const { left: cLeft, right: cRight } = container.getBoundingClientRect();
+  function highlightClosestCard() {
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    let closestCard = null;
+    let closestDistance = Infinity;
+
     cards.forEach(card => {
-      const { left, right } = card.getBoundingClientRect();
-      const center = (left + right) / 2;
-      card.classList.toggle("in-view", center > cLeft && center < cRight);
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = card;
+      }
+
+      card.classList.remove("in-view");
+    });
+
+    if (closestCard) {
+      closestCard.classList.add("in-view");
+    }
+  }
+
+  function centerCard(card) {
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const scrollOffset = cardCenter - containerCenter;
+
+    container.scrollBy({
+      left: scrollOffset,
+      behavior: "smooth"
     });
   }
 
-  // Scroll manual
+  function centerClosestCard() {
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    let closestCard = null;
+    let closestDistance = Infinity;
+
+    cards.forEach(card => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = card;
+      }
+    });
+
+    if (closestCard) {
+      centerCard(closestCard);
+    }
+  }
+
   prevBtn.addEventListener("click", () => {
     container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  });
-  nextBtn.addEventListener("click", () => {
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    setTimeout(centerClosestCard, 500);
   });
 
-  // Auto-scroll
+  nextBtn.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    setTimeout(centerClosestCard, 500);
+  });
+
   setInterval(() => {
     const maxScroll = container.scrollWidth - container.clientWidth;
     if (container.scrollLeft >= maxScroll - 5) {
@@ -33,9 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
+    setTimeout(centerClosestCard, 600);
   }, 3000);
 
-  // Atualiza destaque ao rolar
-  container.addEventListener("scroll", updateInView);
-  updateInView();
+  container.addEventListener("scroll", () => {
+    requestAnimationFrame(highlightClosestCard);
+  });
+
+  highlightClosestCard();
 });
