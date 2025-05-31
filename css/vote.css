@@ -1,103 +1,194 @@
 /* Estilo base do corpo */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+  background-color: #f9fafb; /* tom mais suave */
+  color: #2e2e2e;
   margin: 0;
   padding: 0;
-   height: 100%;
-  margin: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+ 
 }
-
-/* Navbar */
-
-
 
 /* Container principal */
 .container-vote {
   max-width: 600px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 3rem auto;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15); /* sombra mais suave e colorida */
+  transition: box-shadow 0.3s ease;
+}
+
+.container-vote:hover {
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.25);
 }
 
 /* Título */
 #tituloVotacao {
   text-align: center;
-  color: #4f46e5;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  color: #1e88e5;;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.03em;
 }
 
 /* Formulário */
 #formVotacao label {
-  display: block;
-  background: #f0f0f0;
-  padding: 12px 16px;
-  margin: 10px 0;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  padding: 14px 18px;
+  margin: 0.75rem 0;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  font-size: 1.1rem;
+  user-select: none;
 }
 
-#formVotacao label:hover {
-  background: #e0e7ff;
+#formVotacao label:hover,
+#formVotacao input[type="radio"]:focus + label,
+#formVotacao input[type="radio"]:checked + label {
+  background-color: #e0e7ff;
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.4);
 }
 
 #formVotacao input[type="radio"] {
-  margin-right: 10px;
+  margin-right: 15px;
+  accent-color: #4f46e5; /* deixa o rádio com a cor do tema */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
+/* Botão Enviar */
 #formVotacao button {
   background-color: #4f46e5;
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   display: block;
-  margin: 20px auto 0;
-  font-size: 1rem;
+  margin: 2rem auto 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 #formVotacao button:hover {
   background-color: #4338ca;
+  box-shadow: 0 6px 16px rgba(67, 56, 202, 0.5);
 }
 
 /* Mensagem após votar */
 #msg {
   text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
+  font-weight: 700;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #2563eb;
 }
 
 /* Botão de voltar */
-.container-vote  button {
-  margin-top: 20px;
+.container-vote > button {
+  margin-top: 2rem;
   background-color: transparent;
-  border: 2px solid #4f46e5;
-  color: #4f46e5;
-  padding: 10px 16px;
-  border-radius: 8px;
+  border: 2.5px solid #4f46e5;
+  color: #1e88e5;
+  padding: 12px 24px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: none;
 }
 
 .container-vote > button:hover {
   background-color: #4f46e5;
   color: white;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.5);
 }
 
 /* Rodapé */
 /* Faz o conteúdo expandir e empurra o footer para o final */
-main {
-  flex: 1;
+footer{
+  margin-top: auto;
+  
+}
+/* Responsividade para telas de até 900px */
+@media (max-width: 900px) {
+  .container-vote {
+    margin: auto auto;
+    padding: 2rem 1.5rem;
+  }
+
+  #tituloVotacao {
+    font-size: 1.8rem;
+  }
+
+  #formVotacao label {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  #formVotacao button {
+    font-size: 1.05rem;
+    padding: 12px 24px;
+  }
+
+  .container-vote > button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Responsividade para telas de até 600px */
+@media (max-width: 600px) {
+  .container-vote {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+  }
+
+  #tituloVotacao {
+    font-size: 1.6rem;
+  }
+
+  #formVotacao label {
+    font-size: 0.95rem;
+    flex-direction: row;
+    padding: 10px 12px;
+  }
+
+  #formVotacao input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+  }
+
+  #formVotacao button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+
+  .container-vote > button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.95rem;
+  }
+
+  #msg {
+    font-size: 1rem;
+  }
 }

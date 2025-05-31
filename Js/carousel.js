@@ -3,93 +3,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("btn-left");
   const nextBtn = document.getElementById("btn-right");
   const cards = Array.from(container.children);
-  const scrollAmount = cards[0].getBoundingClientRect().width + 20; // largura + margem
+  const cardWidth = cards[0].offsetWidth + 20; // inclui margem
 
-  function highlightClosestCard() {
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + containerRect.width / 2;
+  let currentIndex = 0;
 
-    let closestCard = null;
-    let closestDistance = Infinity;
+  function scrollToCard(index) {
+    if (index < 0) index = 0;
+    if (index >= cards.length) index = cards.length - 1;
+    currentIndex = index;
 
-    cards.forEach(card => {
-      const cardRect = card.getBoundingClientRect();
-      const cardCenter = cardRect.left + cardRect.width / 2;
-      const distance = Math.abs(containerCenter - cardCenter);
-
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestCard = card;
-      }
-
-      card.classList.remove("in-view");
+    container.scrollTo({
+      left: cardWidth * currentIndex,
+      behavior: "smooth",
     });
 
-    if (closestCard) {
-      closestCard.classList.add("in-view");
-    }
+    highlightCard(currentIndex);
   }
 
-  function centerCard(card) {
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + containerRect.width / 2;
-
-    const cardRect = card.getBoundingClientRect();
-    const cardCenter = cardRect.left + cardRect.width / 2;
-    const scrollOffset = cardCenter - containerCenter;
-
-    container.scrollBy({
-      left: scrollOffset,
-      behavior: "smooth"
+  function highlightCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle("in-view", i === index);
     });
-  }
-
-  function centerClosestCard() {
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + containerRect.width / 2;
-
-    let closestCard = null;
-    let closestDistance = Infinity;
-
-    cards.forEach(card => {
-      const cardRect = card.getBoundingClientRect();
-      const cardCenter = cardRect.left + cardRect.width / 2;
-      const distance = Math.abs(containerCenter - cardCenter);
-
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestCard = card;
-      }
-    });
-
-    if (closestCard) {
-      centerCard(closestCard);
-    }
   }
 
   prevBtn.addEventListener("click", () => {
-    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    setTimeout(centerClosestCard, 500);
+    scrollToCard(currentIndex - 1);
   });
 
   nextBtn.addEventListener("click", () => {
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    setTimeout(centerClosestCard, 500);
+    scrollToCard(currentIndex + 1);
   });
 
+  // Auto rolagem
   setInterval(() => {
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    if (container.scrollLeft >= maxScroll - 5) {
-      container.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-    setTimeout(centerClosestCard, 600);
-  }, 3000);
+    const next = (currentIndex + 1) % cards.length;
+    scrollToCard(next);
+  }, 4000);
 
-  container.addEventListener("scroll", () => {
-    requestAnimationFrame(highlightClosestCard);
-  });
-
-  highlightClosestCard();
+  // Inicialização
+  scrollToCard(0);
 });

@@ -3,14 +3,15 @@
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 900px;
+  width: 100%;
+  max-width: 1600px;
   margin: 40px auto;
   padding: 0 1rem;
 }
 
 /* Botões de scroll */
 .carousel-scroll-btn {
-  background-color: #0099ff; /* Azul vivo */
+  background-color: #0099ff; 
   border: none;
   color: white;
   width: 48px;
@@ -57,7 +58,10 @@
   width: 280px;
   margin: 0 10px;
   padding: 1.5rem;
-  background: #ffffff;
+ background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+  color: white;
+    scroll-snap-align: center;
+
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
@@ -73,8 +77,44 @@
 .card.in-view {
   opacity: 1;
   transform: scale(1);
-  border-color: #4f46e5;
+  border-color: #8503ff;
 }
+.card h2 {
+  font-size: 2rem; /* Aumenta o título */
+  margin-bottom: 10px;
+  color: #012c49;
+}
+
+.card p {
+  font-size: 1.3rem; /* Aumenta o texto */
+  line-height: 1.4;
+}
+card .icon {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card svg {
+  display: block;
+  margin: 0 auto;
+}
+.titulo-funcionalidades {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  background: linear-gradient(to right, #3b82f6, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Compatibilidade para navegadores que não aplicam -webkit */
+  background-clip: text;
+  color: transparent;
+}
+
+
 footer{
   position: fixed;
   

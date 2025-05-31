@@ -1,7 +1,9 @@
 .container-vote{
     width: 100%;
     max-width: 500px;
-    margin: 0 auto;
+    margin-bottom: 151px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,8 +28,4 @@
     width: 250px;
   
    
-}
-footer{
-    position: fixed;
-    
 }

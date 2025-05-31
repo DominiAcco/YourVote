@@ -1,5 +1,3 @@
-// js/register.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const formRegister  = document.getElementById("registerForm");
   const loginSection  = document.getElementById("loginSection");
@@ -7,14 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const msg           = document.getElementById("msg");
   const backBtn       = document.getElementById("backBtn");
 
-  
-
-  // 2) Botões de navegação
   btnLogin.addEventListener("click",  () => window.location.href = "home.html");
   backBtn.addEventListener("click",  () => window.location.href = "index.html");
 
-  // 3) No submit, apenas cadastra se ainda não houver user; senão só mostra loginSection
-  
   formRegister.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -26,21 +19,32 @@ document.addEventListener("DOMContentLoaded", () => {
       msg.style.color = "red";
       return;
     }
-    localStorage.setItem("user", JSON.stringify({ username, userId }));
 
-    // Recheca a storage
-    const stored = JSON.parse(localStorage.getItem("user") || "null");
-    console.log("Stored user:", stored);
-    if (stored) {
-      // Já cadastrado → só mostra o login
-      msg.textContent = "Usuário já cadastrado! Clique em 'Fazer Login'.";
-      msg.style.color = "blue";
-      loginSection.style.display = "block";
+    // Pega todos os usuários registrados (ou inicia vazio)
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    // Verifica se o ID já existe com nome diferente
+    const existing = users.find(u => u.userId === userId);
+
+    if (existing && existing.username !== username) {
+      msg.textContent = "Este ID já está em uso por outro nome.";
+      msg.style.color = "red";
       return;
     }
 
-    // Se não tinha, registra e vai pra home
-    
-    window.location.href = "home.html";
+    if (!existing) {
+      // Adiciona novo usuário
+      users.push({ username, userId });
+      localStorage.setItem("users", JSON.stringify(users));
+      msg.textContent = "Usuário registrado com sucesso!";
+    } else {
+      msg.textContent = "Usuário já registrado. Clique em 'Fazer Login'.";
+    }
+
+    // Armazena o usuário atual logado
+    localStorage.setItem("user", JSON.stringify({ username, userId }));
+
+    loginSection.style.display = "block";
+    msg.style.color = "blue";
   });
 });

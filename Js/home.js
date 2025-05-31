@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const voteList = document.getElementById("voteList");
   const votacoes = JSON.parse(localStorage.getItem("votacoes") || "[]");
 
-  // Atualiza status expirado
   updateExpired(votacoes);
 
   if (votacoes.length === 0) {
@@ -62,22 +61,26 @@ document.addEventListener("DOMContentLoaded", () => {
           const pct = ((c.votos || 0) / totalVotes * 100).toFixed(1);
           html += `
             <p><strong>${c.nome}</strong>: ${pct}% (${c.votos} votos)</p>
-            <div class="barra"><div class="preenchimento" style="width:${pct}%;"></div></div>
+            <div class="barra">
+              <div class="preenchimento" style="width: ${pct}%;">
+                <span>${pct}%</span>
+              </div>
+            </div>
           `;
         });
       }
 
-      // Botões
       if (votacao.creator === user.userId && votacao.active) {
         html += `<button class="btn-end" id="end-${votacao.id}">Encerrar</button>`;
       }
       const buttonId = `btnVotar-${votacao.id}`;
-      html += `<button class="btn-votar" id="${buttonId}" ${(!votacao.active || (votacao.votantes||[]).includes(user.userId)) ? "disabled" : ""}>${(votacao.votantes||[]).includes(user.userId) ? "Já votou" : "Votar"}</button>`;
+      html += `<button class="btn-votar" id="${buttonId}" ${(!votacao.active || (votacao.votantes || []).includes(user.userId)) ? "disabled" : ""}>
+                ${(votacao.votantes || []).includes(user.userId) ? "Já votou" : "Votar"}
+              </button>`;
 
       div.innerHTML = html;
       voteList.appendChild(div);
 
-      // Eventos
       if (votacao.creator === user.userId && votacao.active) {
         document.getElementById(`end-${votacao.id}`).addEventListener("click", () => {
           votacao.active = false;
@@ -85,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
           location.reload();
         });
       }
+
       document.getElementById(buttonId).addEventListener("click", () => {
         localStorage.setItem("votacaoSelecionada", votacao.id);
         window.location.href = "vote.html";
