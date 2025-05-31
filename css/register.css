@@ -1,16 +1,18 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#register-body{
-    font-family: 'Segoe UI', sans-serif;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+#register-body {
+  font-family: 'Segoe UI', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 .register-container {
   background-color: #ffffff;
   padding: 40px 30px;
@@ -30,18 +32,19 @@
   margin-bottom: 25px;
   color: #1e88e5;
 }
+
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-.register-container label{
-    display: flex;
-    align-items: right;
-    
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
- 
+
+.register-container label {
+  display: flex;
+  align-items: right;
+
+}
+
 
 input {
   padding: 12px 15px;
@@ -75,10 +78,11 @@ button:hover {
 }
 
 
-  footer{
-    position: fixed;
-  }
-  /* Responsividade para telas até 900px */
+footer {
+  position: fixed;
+}
+
+/* Responsividade para telas até 900px */
 @media (max-width: 900px) {
   .register-container {
     padding: 30px 20px;
@@ -92,7 +96,8 @@ button:hover {
     margin-bottom: 20px;
   }
 
-  input, button {
+  input,
+  button {
     font-size: 0.95rem;
     padding: 10px 14px;
   }
@@ -119,10 +124,11 @@ button:hover {
     gap: 12px;
   }
 
-  input, button {
+  input,
+  button {
     font-size: 0.9rem;
     padding: 10px;
   }
 
-  
+
 }

@@ -3,6 +3,7 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
 input,
 button {
     width: 100%;
@@ -41,16 +42,7 @@ button {
     padding-left: 20px;
 }
 
-/*
-.home-button    {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 30px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f7f7f7;
-    }*/
+
 .barra {
     width: 100%;
     background-color: #e0e0e0;
@@ -85,10 +77,11 @@ button {
 
 .votacao h4 {
     margin-top: 0;
-   font-size: 1.8rem; /* ou o tamanho que preferir */
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #003366; /* Azul escuro opcional */
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #003366;
+   
 }
 
 .barra {
@@ -103,7 +96,6 @@ button {
 .preenchimento {
     height: 24px;
     background-color: #00aaff;
-    /* Azul mais claro e vibrante para contraste */
     color: #fff;
     font-weight: bold;
     text-align: right;
